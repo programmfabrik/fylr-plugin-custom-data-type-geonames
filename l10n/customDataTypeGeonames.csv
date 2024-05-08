@@ -1,0 +1,70 @@
+key,de-DE,en-US
+custom.data.type.geonames.name,geonames-Verknüpfung,geonames-Link
+custom.data.type.geonames.edit.button|icon,edit,edit
+custom.data.type.geonames.remove.button|icon,trash,trash
+custom.data.type.geonames.config.option.mask.editor_style.value.inline,Eingebettet,Embedded
+custom.data.type.geonames.setting.mask.editor_style,Editor-Stil,Editor-Style
+custom.data.type.geonames.config.option.mask.editor_style.value.popover,Popover,Popover
+custom.data.type.geonames.modal.form.url.placeholder,geonames-Verknüpfung,geonames-Link
+custom.data.type.geonames.modal.form.text.label,Text,Text
+custom.data.type.geonames.edit.modal.title|text,Web-geonames konfigurieren,Config Web-geonames
+custom.data.type.geonames.edit.no_valid_geonames,Keine valide geonames-Verknüpfung,No valid 
+custom.data.type.geonames.edit.no_geonames,Keine geonames-Verknüpfung gesetzt,No valid geonames-link
+custom.data.type.geonames.modal.form.text.featureclasses,Kategorie,Categorie
+custom.data.type.geonames.modal.form.text.count,Anzahl Vorschläge,Count of suggestions
+custom.data.type.geonames.modal.form.text.count_short,Vorschläge,Suggestions
+custom.data.type.geonames.modal.form.text.searchbar,Suchbegriff eingeben,Enter searchterm
+custom.data.type.geonames.modal.form.text.searchbar.placeholder,tippen ...,type ...
+custom.data.type.geonames.modal.form.text.result.label,Gewählter Eintrag,Choosen Entry
+custom.data.type.geonames.modal.form.text.result.placeholder,noch leer,empty
+custom.data.type.geonames.modal.form.text.uri.label,Zugehörige URI,Associated URI
+custom.data.type.geonames.modal.form.text.uri.label.placeholder,noch leer,empty
+custom.data.type.geonames.setting.schema.add_differentiatedpersons,Individualisierte Personen,Persons
+custom.data.type.geonames.setting.schema.add_coorporates,Körperschaften,Corporate Bodys
+custom.data.type.geonames.setting.schema.add_geographicplaces,Geografika,Places
+custom.data.type.geonames.setting.schema.add_subjects,Sachbegriffe,Subjects
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.value.checkbox,Kategorien (Featureklassen) als Dropdown zur Verfeinerung der Suche anbieten?,Offer featureclasses as a drop-down to refine the search?
+custom.data.type.geonames.config.parameter.mask.config_featurecodes.value.checkbox,Ortstyp (Featurecodes) als Dropdown zur Verfeinerung der Suche anbieten?,Offer featurecodes as a drop-down to refine the search?
+custom.data.type.geonames.config.parameter.schema.mapbox_api_key.value.label,Mapbox-Api-Key (für Kartenanzeige benötigt),Mapbox Api-Key (required for map display)
+custom.data.type.geonames.config.parameter.mask.show_infopopup.value.label,Infopopup,Infopopup
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.value.label,Dropdown Featureklassen,Dropdown Featureclasses
+custom.data.type.geonames.config.parameter.mask.config_featurecodes.value.label,Dropdown Featurecodes,Dropdown Featurecodes
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.all.label,Alle Kategorien,All categories
+custom.data.type.geonames.config.parameter.mask.config_featurecodes.all.label,Alle Ortstypen,All featurecodes
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.a.label,Administration,Administrative Boundary Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.h.label,Gewässer,Hydrographic Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.l.label,Gebiete,Area Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.p.label,Besiedelte Orte,Populated Place Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.r.label,Straßen- und Eisenbahn,Road / Railroad Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.s.label,Punkte,Spot Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.t.label,Geländeformen,Hypsographic Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.u.label,Untersee,Undersea Features
+custom.data.type.geonames.config.parameter.mask.config_featureclasses.v.label,Vegetation,Vegetation Features
+custom.data.type.geonames.config.parameter.mask.infopop.info.label,Informationen über den Eintrag,Information about the entry
+custom.data.type.geonames.config.parameter.mask.infopop.name.label,Name,Name
+custom.data.type.geonames.config.parameter.mask.infopop.einteilung4.label,Einteilung4,Classification4
+custom.data.type.geonames.config.parameter.mask.infopop.einteilung3.label,Einteilung3,Classification3
+custom.data.type.geonames.config.parameter.mask.infopop.einteilung2.label,Einteilung2,Classification2
+custom.data.type.geonames.config.parameter.mask.infopop.einteilung1.label,Einteilung1,Classification1
+custom.data.type.geonames.config.parameter.mask.infopop.land.label,Land,Country
+custom.data.type.geonames.config.parameter.mask.infopop.kontinent.label,Kontinent,Continent
+custom.data.type.geonames.config.parameter.mask.infopop.einwohner.label,Einwohner,Population
+custom.data.type.geonames.config.parameter.mask.infopop.typ.label,Typ,Type
+custom.data.type.geonames.config.parameter.mask.infopop.zeitzone.label,Zeitzone,Timezone
+custom.data.type.geonames.config.parameter.schema.geonames_username.value.label,geonames-Username,geonames-Username
+custom.data.type.geonames.config.parameter.mask.default_country_code.value.label,Standard-Ländercode (2-stellig),Default countrycode (2 digits)
+custom.data.type.geonames.modal.form.text.countrys,Land,Country
+custom.data.type.geonames.modal.form.text.featurecodes,Ortstyp,Placetype
+custom.data.type.geonames.country.name.all,Alle Länder,All countries
+custom.data.type.geonames.modal.form.text.expand,Ergebnisse ausdehnen,Expand search
+custom.data.type.geonames.config.parameter.mask.default_expand.value.label,Standardwert für Trefferexpansion,Default value for search expansion
+custom.data.type.geonames.config.parameter.mask.default_expand.value.checkbox,Datensätze der untersten administrativen Ebene (admin4) werden auch über die darüber geordneten administrativen Einheit (admin3) gefunden,Records of the lowest administrative level (admin4) are also found via the higher-level administrative unit (admin3)
+custom.data.type.geonames.config.parameter.mask.use_ancestors.value.label,Elternhierarchie,Ancestors
+custom.data.type.geonames.config.parameter.mask.use_ancestors.value.checkbox,Zeige die Elternhierarchie in der Trefferliste,Show ancestors in hitlist
+server.config.name.system.update_interval_geonames,geonames-Update-Einstellungen,geonames-update-configuration
+server.config.parameter.system.update_interval_geonames.default_language.label,Standard-Datensprache als Fallback (ISO 639-1),Default-datalanguage as Fallback (ISO 639-1)
+server.config.parameter.system.update_interval_geonames.days.label,"Tage zwischen Updates. Hinweis: Das Update sollte nicht automatisch aktiviert werden, sondern nur in bestimmten Fällen manuell gestartet werden.",Days between updates
+server.config.parameter.system.update_interval_geonames.geonames_username.label,Geonames-Username (API),Geonames-Username (API)
+custom.data.type.geonames.config.parameter.mask.editor_display.value.label,Editor-Ansicht,Editor-Display
+custom.data.type.geonames.config.option.mask.editor_display.value.default,Standard,Default
+custom.data.type.geonames.config.option.mask.editor_display.value.condensed,1 Zeile,One-liner

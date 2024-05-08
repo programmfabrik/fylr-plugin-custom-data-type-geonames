@@ -1,0 +1,110 @@
+plugin:
+  name: custom-data-type-geonames
+  version: 1
+  url: https://github.com/programmfabrik/fylr-custom-data-type-geonames
+  displayname:
+    de-DE: Geonames-Verknüpfung
+    en-US: Geonames-Referencing
+  info:
+    de-DE: Stellt Verknüpfungen mit der geographischen Datenbank geonames her.
+    en-US: Use for references to entities of geonames-database.
+  server:
+    api-version:
+      require: 1
+  l10n: l10n/customDataTypeGeonames.csv
+  webfrontend:
+    url: customDataTypeGeonames.js
+    css: customDataTypeGeonames.css
+
+
+base_url_prefix: "webfrontend"
+
+custom_types:
+  geonames:
+    mapping:
+      conceptName:
+        type: text
+      conceptURI:
+        type: text
+      conceptAncestors:
+        type: text
+      conceptGeoJSON:
+        type: geo_json
+      facetTerm:
+        type: text_l10n
+    config:
+      schema:
+        - name: mapbox_api_key
+          parameters:
+            value:
+              type: text
+        - name: geonames_username
+          parameters:
+            value:
+              type: text
+      mask:
+        - name: config_featureclasses
+          parameters:
+            value:
+              type: bool
+        - name: config_featurecodes
+          parameters:
+            value:
+              type: bool
+        - name: default_country_code
+          parameters:
+            value:
+              type: text
+        - name: default_expand
+          parameters:
+            value:
+              type: bool
+        - name: use_ancestors
+          parameters:
+            value:
+              type: bool
+        - name: editor_display
+          parameters:
+            value:
+              type: select
+              options: ["default", "condensed"]
+              
+    update:
+      plugin_user:
+        reference: system:root
+      exec:
+        service: "node"
+        commands:
+          - prog: "node"
+            stdin:
+              type: body
+            stdout:
+              type: body
+            args:
+              - type: "value"
+                value: "%_exec.pluginDir%/updater/geonamesUpdater.js"
+              - type: "value"
+                value: "%info.json%"
+      timeout: 60
+      batch_size: 1
+      expires_days: 1
+      interval_base_config: update_interval_geonames.days
+
+
+base_config:
+  - name: update_interval_geonames
+    group: update_custom_data_type
+    parameters:
+      days:
+        type: int
+        min: 0
+        default: 0
+        position: 0
+      default_language:
+        type: text
+        default: 'de'
+        position: 1
+      geonames_username:
+        type: text
+        default: ''
+        position: 1
