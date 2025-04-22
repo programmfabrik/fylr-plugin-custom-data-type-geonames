@@ -233,6 +233,29 @@ outputErr = (err2) => {
 
     process.stdin.setEncoding('utf8');
 
+    ////////////////////////////////////////////////////////////////////////////
+    // check if hour-restriction is set
+    ////////////////////////////////////////////////////////////////////////////
+
+    if (info?.config?.plugin?.['custom-data-type-geonames']?.config?.update_geonames?.restrict_time === true) {
+        geonames_config = info.config.plugin['custom-data-type-geonames'].config.update_geonames;
+        // check if hours are configured
+        if (geonames_config?.from_time !== false && geonames_config?.to_time !== false) {
+            const now = new Date();
+            const hour = now.getHours();
+            // check if hours do not match
+            if (hour < geonames_config.from_time && hour >= geonames_config.to_time) {
+                // exit if hours do not match
+                outputData({
+                    "state": {
+                        "theend": 2,
+                        "log": ["hours do not match, cancel update"]
+                    }
+                });
+            }
+        }
+    }
+
     access_token = info && info.plugin_user_access_token;
 
     if (access_token) {
