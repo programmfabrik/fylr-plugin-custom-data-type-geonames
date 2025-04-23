@@ -63,7 +63,10 @@ custom.data.type.geonames.config.parameter.mask.use_ancestors.value.label,Eltern
 custom.data.type.geonames.config.parameter.mask.use_ancestors.value.checkbox,Zeige die Elternhierarchie in der Trefferliste,Show ancestors in hitlist
 server.config.name.system.update_geonames,geonames-Update-Einstellungen,geonames-update-configuration
 server.config.parameter.system.update_geonames.default_language.label,Standard-Datensprache als Fallback (ISO 639-1),Default-datalanguage as Fallback (ISO 639-1)
-server.config.parameter.system.update_geonames.days.label,"Tage zwischen Updates. Hinweis: Das Update sollte nicht automatisch aktiviert werden, sondern nur in bestimmten Fällen manuell gestartet werden.",Days between updates
+server.config.parameter.system.update_geonames.restrict_time.label,Beschränke Updates auf bestimmte Stunden?,Restrict updates to specific hours?
+server.config.parameter.system.update_geonames.restrict_time.checkbox,Ja - beschränken,Yes - restrict
+server.config.parameter.system.update_geonames.from_time.label,Stunde von (Zahl 0-24),Hour from (Int 0-24)
+server.config.parameter.system.update_geonames.to_time.label,Stunde bis (Zahl 0-24),Hour to (Int 0-24)
 server.config.parameter.system.update_geonames.geonames_username.label,Geonames-Username (API),Geonames-Username (API)
 custom.data.type.geonames.config.parameter.mask.editor_display.value.label,Editor-Ansicht,Editor-Display
 custom.data.type.geonames.config.option.mask.editor_display.value.default,Standard,Default
