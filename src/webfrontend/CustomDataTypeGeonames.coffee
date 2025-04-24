@@ -22,6 +22,11 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommons
     desiredLanguage
 
   #######################################################################
+  # allows usage of "standard (geo)" in maskoptioons
+  supportsGeoStandard: 
+    ->true 
+
+  #######################################################################
   # configure used facet
   getFacet: (opts) ->
     opts.field = @
