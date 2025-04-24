@@ -91,6 +91,11 @@ class GeonamesUtil
                 type: "Point"
                 coordinates: [object.lat*1, object.lng*1]
 
+    geoJSON = 
+      type: "Feature"
+      properties: {},
+      geometry: geoJSON
+
     return geoJSON
 
   ########################################################################
