@@ -152,7 +152,10 @@ main = (payload) => {
                         data = matchingRecordData.data;
                         if (data) {
                             // get desired language for preflabel. This is frontendlanguage from original data...
-                            let desiredLanguage = originalCdata.frontendLanguage;
+                            let desiredLanguage = 'de'
+                            if(originalCdata?.frontendLanguage) {
+                                desiredLanguage = originalCdata.frontendLanguage;
+                            }
                             
                             // init updated cdata
                             newCdata = {};
@@ -176,7 +179,7 @@ main = (payload) => {
                             newCdata.facetTerm = GeonamesUtil.getFacetTerm(data, databaseLanguages);
                             
                             // save frontend language (same as given)
-                            newCdata.frontendLanguage = originalCdata.frontendLanguage;
+                            newCdata.frontendLanguage = desiredLanguage;
                                 
                             if (hasChanges(payload.objects[index].data, newCdata)) {
                                 payload.objects[index].data = newCdata;
@@ -272,14 +275,14 @@ outputErr = (err2) => {
 
             frontendLanguages = config.system.config.languages.frontend;
 
-            const testDefaultLanguageConfig = config.plugin['custom-data-type-geonames'].config.update_interval_geonames.default_language;
+            const testDefaultLanguageConfig = config.plugin['custom-data-type-geonames'].config.update_geonames?.default_language;
             if (testDefaultLanguageConfig) {
                 if (testDefaultLanguageConfig.length == 2) {
-                    defaultLanguage = testDefaultLanguageConfig;
+                    default_language = testDefaultLanguageConfig;
                 }
             }
             
-            const testGeonamesUsernameConfig = config.plugin['custom-data-type-geonames'].config.update_interval_geonames.geonames_username;
+            const testGeonamesUsernameConfig = config.plugin['custom-data-type-geonames'].config.update_geonames?.geonames_username;
             if (testGeonamesUsernameConfig) {
                 geonames_username = testGeonamesUsernameConfig;
             }
