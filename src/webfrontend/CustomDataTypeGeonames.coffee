@@ -116,6 +116,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommons
       name: @nameLocalized()
       value: value
 
+
   #######################################################################
   # read info from geonames-terminology
   __getAdditionalTooltipInfo: (uri, tooltip,extendedInfo_xhr) ->
@@ -309,6 +310,11 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommons
         header_left: new CUI.Label(text: $$('custom.data.type.commons.popover.choose.label'))
         content: cdata_form
     .show()
+
+  getTemplateData: (data) ->
+    console.log "f:getTemplateData"
+    console.log data
+    return data?._template?[@name()]
 
   #######################################################################
   # handle suggestions-menu
@@ -644,6 +650,8 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommons
   #######################################################################
   # renders the "result" in original form (outside popover)
   __renderButtonByData: (cdata) ->
+    console.log "f:__renderButtonByData"
+    console.log "cdata", cdata
     that = @
     # when status is empty or invalid --> message
     switch @getDataStatus(cdata)
