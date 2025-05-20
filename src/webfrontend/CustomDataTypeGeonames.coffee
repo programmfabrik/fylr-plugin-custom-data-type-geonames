@@ -311,10 +311,6 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommons
         content: cdata_form
     .show()
 
-  getTemplateData: (data) ->
-    console.log "f:getTemplateData"
-    console.log data
-    return data?._template?[@name()]
 
   #######################################################################
   # handle suggestions-menu
@@ -650,8 +646,6 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommons
   #######################################################################
   # renders the "result" in original form (outside popover)
   __renderButtonByData: (cdata) ->
-    console.log "f:__renderButtonByData"
-    console.log "cdata", cdata
     that = @
     # when status is empty or invalid --> message
     switch @getDataStatus(cdata)
