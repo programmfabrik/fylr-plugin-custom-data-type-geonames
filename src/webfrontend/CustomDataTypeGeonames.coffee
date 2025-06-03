@@ -1,4 +1,4 @@
-class CustomDataTypeGeonames extends CustomDataTypeWithCommons
+class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
 
   #######################################################################
   # return name of plugin

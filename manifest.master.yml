@@ -15,7 +15,8 @@ plugin:
   webfrontend:
     url: customDataTypeGeonames.js
     css: customDataTypeGeonames.css
-
+    dependencies:
+      - commons-library
 
 base_url_prefix: "webfrontend"
 

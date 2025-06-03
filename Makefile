@@ -2,8 +2,7 @@ ZIP_NAME ?= "customDataTypeGeonames.zip"
 PLUGIN_NAME = "custom-data-type-geonames"
 
 # coffescript-files to compile
-COFFEE_FILES = commons.coffee \
-	CustomDataTypeGeonames.coffee \
+COFFEE_FILES = CustomDataTypeGeonames.coffee \
 	CustomDataTypeGeonamesFacet.coffee \
 	Countrycodes.coffee \
 	geonamesUtil.coffee
@@ -25,13 +24,9 @@ build: clean buildinfojson ## clean, compile, copy files to build folder
 
 				cp build-info.json build/$(PLUGIN_NAME)/build-info.json # build-info
 
-				mkdir -p src/tmp # build code from coffee
-				cp easydb-library/src/commons.coffee src/tmp
+				mkdir -p src/tmp # build code from coffee				
 				cp src/webfrontend/*.coffee src/tmp
 				cd src/tmp && coffee -b --compile ${COFFEE_FILES} # bare-parameter is obligatory!
-
-				# first: commons! Important
-				cat src/tmp/commons.js > build/$(PLUGIN_NAME)/webfrontend/customDataTypeGeonames.js
 
 				cat src/tmp/Countrycodes.js >> build/$(PLUGIN_NAME)/webfrontend/customDataTypeGeonames.js
 				cat src/tmp/CustomDataTypeGeonames.js >> build/$(PLUGIN_NAME)/webfrontend/customDataTypeGeonames.js
@@ -46,7 +41,6 @@ build: clean buildinfojson ## clean, compile, copy files to build folder
 
 				cp l10n/customDataTypeGeonames.csv build/$(PLUGIN_NAME)/l10n/customDataTypeGeonames.csv # copy l10n
 				cat l10n/world_names.csv >> build/$(PLUGIN_NAME)/l10n/customDataTypeGeonames.csv # copy countrynames
-				tail -n+2 easydb-library/src/commons.l10n.csv >> build/$(PLUGIN_NAME)/l10n/customDataTypeGeonames.csv # copy commons
 
 				cp src/webfrontend/css/main.css build/$(PLUGIN_NAME)/webfrontend/customDataTypeGeonames.css # copy css
 				cp manifest.master.yml build/$(PLUGIN_NAME)/manifest.yml # copy manifest
