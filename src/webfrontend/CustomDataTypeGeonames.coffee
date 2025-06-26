@@ -63,10 +63,11 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
   # make searchfilter for expert-search
   #######################################################################
   getSearchFilter: (data, key=@name()) ->
+      console.log "f:getSearchFilter", data, key
       that = @
 
       if data[@name()] == undefined || data[@name()] == {} || data[@name()] == null
-        return
+        return 
 
       # search for empty values
       if data[key+":unset"]
@@ -90,7 +91,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
           givenURI = data[@name()].conceptURI
           givenURIParts = givenURI.split('/')
           givenGeonamesID = givenURIParts.pop()
-          uri = 'http://www.geonames.org/' + givenGeonamesID
+          uri = 'http://geonames.org/' + givenGeonamesID
 
           filter =
               type: "complex"
@@ -102,6 +103,8 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
                   fields: [@path() + '.' + @name() + ".conceptURI" ]
                   in: [uri]
               ]
+
+      console.log "filter", filter
 
       filter
 
