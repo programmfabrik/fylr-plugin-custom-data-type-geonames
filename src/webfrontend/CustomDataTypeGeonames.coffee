@@ -78,6 +78,9 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
           filter._unset_filter = true
           return filter
 
+      else if data[key+":has_value"]
+        return @getHasValueFilter(data, key)
+
       # find all records which
       #   - have the uri as conceptURI
       #   OR
@@ -101,20 +104,6 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
               ]
 
       filter
-
-  #######################################################################
-  # make tag for expert-search
-  #######################################################################
-  getQueryFieldBadge: (data) ->
-      if ! data[@name()]
-          value = $$("field.search.badge.without")
-      else if ! data[@name()]?.conceptURI
-          value = $$("field.search.badge.without")
-      else
-          value = data[@name()].conceptName
-
-      name: @nameLocalized()
-      value: value
 
 
   #######################################################################
