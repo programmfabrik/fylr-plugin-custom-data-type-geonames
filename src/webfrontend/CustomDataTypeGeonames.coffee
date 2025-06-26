@@ -63,7 +63,6 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
   # make searchfilter for expert-search
   #######################################################################
   getSearchFilter: (data, key=@name()) ->
-      console.log "f:getSearchFilter", data, key
       that = @
 
       if data[@name()] == undefined || data[@name()] == {} || data[@name()] == null
@@ -103,8 +102,6 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
                   fields: [@path() + '.' + @name() + ".conceptURI" ]
                   in: [uri]
               ]
-
-      console.log "filter", filter
 
       filter
 
