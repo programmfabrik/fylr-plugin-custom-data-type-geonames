@@ -34,10 +34,10 @@ function getConfigFromAPI() {
     return new Promise((resolve, reject) => {
         var url = 'http://fylr.localhost:8081/api/v1/config?access_token=' + access_token
         fetch(url, {
-                headers: {
-                    'Accept': 'application/json'
-                },
-            })
+            headers: {
+                'Accept': 'application/json'
+            },
+        })
             .then(response => {
                 if (response.ok) {
                     resolve(response.json());
@@ -50,6 +50,18 @@ function getConfigFromAPI() {
                 console.error("DANTE-Updater: Fehler bei der Anfrage an /config");
             });
     });
+}
+
+function isInTimeRange(currentHour, fromHour, toHour) {
+    if (fromHour === toHour) {
+        return true;
+    }
+
+    if (fromHour < toHour) { // same day
+        return currentHour >= fromHour && currentHour < toHour;
+    } else { // through the night
+        return currentHour >= fromHour || currentHour < toHour;
+    }
 }
 
 main = (payload) => {
@@ -97,7 +109,7 @@ main = (payload) => {
                 requestUrls.push(dataRequest);
             });
 
-            Promise.all(requestUrls).then(function(responses) {
+            Promise.all(requestUrls).then(function (responses) {
                 let results = [];
                 // Get a JSON object from each of the responses
                 responses.forEach((response, index) => {
@@ -117,7 +129,7 @@ main = (payload) => {
                     results.push(result);
                 });
                 return Promise.all(results.map(result => result.data));
-            }).then(function(data) {
+            }).then(function (data) {
                 let results = [];
                 data.forEach((data, index) => {
                     let url = requests[index].url;
@@ -153,13 +165,13 @@ main = (payload) => {
                         if (data) {
                             // get desired language for preflabel. This is frontendlanguage from original data...
                             let desiredLanguage = 'de'
-                            if(originalCdata?.frontendLanguage) {
+                            if (originalCdata?.frontendLanguage) {
                                 desiredLanguage = originalCdata.frontendLanguage;
                             }
-                            
+
                             // init updated cdata
                             newCdata = {};
-                            
+
                             // conceptName
                             newCdata.conceptName = GeonamesUtil.getConceptNameFromObject(data);
 
@@ -171,19 +183,19 @@ main = (payload) => {
 
                             // get ancestors from data
                             newCdata.conceptAncestors = GeonamesUtil.getConceptAncestorsFromObject(data);
-                        
+
                             // TODO ADD conceptgeojson
                             newCdata.conceptGeoJSON = GeonamesUtil.getGeoJSONFromGeonamesJSON(data);
-                            
+
                             // save facet
                             newCdata.facetTerm = GeonamesUtil.getFacetTerm(data, databaseLanguages);
-                            
+
                             // save frontend language (same as given)
                             newCdata.frontendLanguage = desiredLanguage;
-                                
+
                             if (hasChanges(payload.objects[index].data, newCdata)) {
                                 payload.objects[index].data = newCdata;
-                            } else {}
+                            } else { }
                         }
                     } else {
                         console.error('No matching record found');
@@ -246,8 +258,9 @@ outputErr = (err2) => {
         if (geonames_config?.from_time !== false && geonames_config?.to_time !== false) {
             const now = new Date();
             const hour = now.getHours();
+
             // check if hours do not match
-            if (hour < geonames_config.from_time && hour >= geonames_config.to_time) {
+            if (!isInTimeRange(hour, geonames_config.from_time, geonames_config.to_time)) {
                 // exit if hours do not match
                 outputData({
                     "state": {
@@ -281,7 +294,7 @@ outputErr = (err2) => {
                     default_language = testDefaultLanguageConfig;
                 }
             }
-            
+
             const testGeonamesUsernameConfig = config.plugin['custom-data-type-geonames'].config.update_geonames?.geonames_username;
             if (testGeonamesUsernameConfig) {
                 geonames_username = testGeonamesUsernameConfig;
