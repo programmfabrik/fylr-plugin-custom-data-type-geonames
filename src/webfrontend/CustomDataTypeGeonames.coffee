@@ -128,7 +128,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
       # abort eventually running request
       extendedInfo_xhr.xhr.abort()
     # start new request
-    extendedInfo_xhr.xhr = new (CUI.XHR)(url: location.protocol + '//uri.gbv.de/terminology/geonames/' + geonamesID + '?format=json')
+    extendedInfo_xhr.xhr = new (CUI.XHR)(url: 'https://uri.gbv.de/terminology/geonames/' + geonamesID + '?format=json')
     extendedInfo_xhr.xhr.start()
     .done((data, status, statusText) ->
       htmlContent = '<span style="padding: 10px 10px 0px 10px; font-weight: bold">' + $$('custom.data.type.geonames.config.parameter.mask.infopop.info.label') + '</span>'
@@ -142,7 +142,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
       if that.getCustomSchemaSettings().mapbox_api_key?.value
           mapbox_api_key = that.getCustomSchemaSettings().mapbox_api_key?.value
           if coord1 != 0 & coord2 != 0
-            #url = location.protocol + '//api.mapbox.com/styles/v1/mapbox/streets-v11/static/' + coord2 + ',' + coord1 + ',11/400x200@2x?access_token=' + mapbox_api_key
+            #url = 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/' + coord2 + ',' + coord1 + ',11/400x200@2x?access_token=' + mapbox_api_key
             #htmlContent += '<div style="width:400px; height: 250px; background-size: contain; background-image: url(' + url + '); background-repeat: no-repeat; background-position: center center;"></div>'
             # show point on static-map
             value = JSON.parse('{"geometry": {"type": "Point","coordinates": [' + coord2 + ',' + coord1 + ']}}')
@@ -359,7 +359,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
             # abort eventually running request
             searchsuggest_xhr.xhr.abort()
         # start new request
-        searchsuggest_xhr.xhr = new (CUI.XHR)(url: location.protocol + '//ws.gbv.de/suggest/geonames2/?searchterm=' + geonames_searchterm + '&language=' + that.getFrontendLanguage() + '&featureclass=' + geonames_featureclass + '&featurecode=' + geonames_featurecode + '&count=' + geonames_countSuggestions + countryQuery + expandQuery + ancestorsQuery)
+        searchsuggest_xhr.xhr = new (CUI.XHR)(url: 'https://ws.gbv.de/suggest/geonames2/?searchterm=' + geonames_searchterm + '&language=' + that.getFrontendLanguage() + '&featureclass=' + geonames_featureclass + '&featurecode=' + geonames_featurecode + '&count=' + geonames_countSuggestions + countryQuery + expandQuery + ancestorsQuery)
         searchsuggest_xhr.xhr.start().done((data, status, statusText) ->
 
             # create new menu with suggestions
@@ -414,7 +414,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
                     geonamesID = geonamesID.replace('http://www.geonames.org/', '')
                     # build url for geonames-api
                     encodedURL = encodeURIComponent('http://api.geonames.org/getJSON?formatted=true&geonameId=' + geonamesID + '&username=' + geonamesUsername + '&style=full')
-                    dataEntry_xhr = new (CUI.XHR)(url: location.protocol + '//jsontojsonp.gbv.de/?url=' + encodedURL)
+                    dataEntry_xhr = new (CUI.XHR)(url: 'https://jsontojsonp.gbv.de/?url=' + encodedURL)
                     dataEntry_xhr.start().done((data, status, statusText) ->
 
                       cdata.conceptName = GeonamesUtil.getConceptNameFromObject data
