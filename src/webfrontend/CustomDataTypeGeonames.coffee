@@ -701,7 +701,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
     tags
 
   getMapboxApiKey: () ->
-    mapbox_api_key = @.getCustomSchemaSettings().mapbox_api_key?.value
+    mapbox_api_key = @.getCustomSchemaSettings()?.mapbox_api_key?.value
     if mapbox_api_key
       return mapbox_api_key
     
