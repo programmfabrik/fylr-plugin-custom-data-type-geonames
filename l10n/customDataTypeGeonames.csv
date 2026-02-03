@@ -68,6 +68,8 @@ server.config.parameter.system.update_geonames.restrict_time.checkbox,Ja - besch
 server.config.parameter.system.update_geonames.from_time.label,Stunde von (Zahl 0-24),Hour from (Int 0-24)
 server.config.parameter.system.update_geonames.to_time.label,Stunde bis (Zahl 0-24),Hour to (Int 0-24)
 server.config.parameter.system.update_geonames.geonames_username.label,Geonames-Username (API),Geonames-Username (API)
+server.config.name.system.mapbox_geonames,Mapbox-Einstellungen,Mapbox-Config
+server.config.parameter.system.mapbox_geonames.mapbox_api_key.label,Mapbox-Api-Key (für Kartenanzeige benötigt),Mapbox Api-Key (required for map display)
 custom.data.type.geonames.config.parameter.mask.editor_display.value.label,Editor-Ansicht,Editor-Display
 custom.data.type.geonames.config.option.mask.editor_display.value.default,Standard,Default
 custom.data.type.geonames.config.option.mask.editor_display.value.condensed,1 Zeile,One-liner

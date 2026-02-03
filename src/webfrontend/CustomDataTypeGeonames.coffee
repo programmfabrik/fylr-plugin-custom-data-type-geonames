@@ -134,13 +134,13 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
       htmlContent = '<span style="padding: 10px 10px 0px 10px; font-weight: bold">' + $$('custom.data.type.geonames.config.parameter.mask.infopop.info.label') + '</span>'
       coord1 = 0
       coord1 = 0
+      mapbox_api_key =  that.getMapboxApiKey()
+
       if data.lat
           coord1 = data.lat
       if data.lat
           coord2 = data.lng
-      # if mapbox_api_key --> read mapbox_api_key from schema
-      if that.getCustomSchemaSettings().mapbox_api_key?.value
-          mapbox_api_key = that.getCustomSchemaSettings().mapbox_api_key?.value
+      if mapbox_api_key
           if coord1 != 0 & coord2 != 0
             #url = 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/' + coord2 + ',' + coord1 + ',11/400x200@2x?access_token=' + mapbox_api_key
             #htmlContent += '<div style="width:400px; height: 250px; background-size: contain; background-image: url(' + url + '); background-repeat: no-repeat; background-position: center center;"></div>'
@@ -700,5 +700,16 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
 
     tags
 
+  getMapboxApiKey: () ->
+    mapbox_api_key = @.getCustomSchemaSettings().mapbox_api_key?.value
+    if mapbox_api_key
+      return mapbox_api_key
+    
+    baseConfig = ez5.session.getBaseConfig("plugin", "custom-data-type-geonames")
+    mapbox_api_key = baseConfig?.mapbox_geonames?.mapbox_api_key
+    if mapbox_api_key
+      return mapbox_api_key
+    
+    return null
 
 CustomDataType.register(CustomDataTypeGeonames)

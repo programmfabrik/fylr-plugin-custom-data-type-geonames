@@ -119,3 +119,9 @@ base_config:
         type: text
         default: ''
         position: 4
+  - name: mapbox_geonames
+    group: mapbox_update_custom_data_type
+    parameters:
+      mapbox_api_key:
+        type: text
+        position: 0
