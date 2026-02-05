@@ -119,6 +119,13 @@ base_config:
         type: text
         default: ''
         position: 4
+  - name: config_geonames
+    group: config_update_custom_data_type
+    parameters:
+      geonames_username:
+        type: text
+        default: ''
+        position: 0
   - name: mapbox_geonames
     group: mapbox_update_custom_data_type
     parameters:

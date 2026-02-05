@@ -64,6 +64,15 @@ function isInTimeRange(currentHour, fromHour, toHour) {
     }
 }
 
+function getGeonamesUsername(config){
+    let username = config.plugin['custom-data-type-geonames'].config.update_geonames?.geonames_username;
+    if(username) return username;
+
+    username = config.plugin['custom-data-type-geonames'].config.config_geonames?.geonames_username;
+    if (username) return username;
+    return null;
+}
+
 main = (payload) => {
     switch (payload.action) {
         case "start_update":
@@ -295,7 +304,7 @@ outputErr = (err2) => {
                 }
             }
 
-            const testGeonamesUsernameConfig = config.plugin['custom-data-type-geonames'].config.update_geonames?.geonames_username;
+            const testGeonamesUsernameConfig = getGeonamesUsername(config);
             if (testGeonamesUsernameConfig) {
                 geonames_username = testGeonamesUsernameConfig;
             }

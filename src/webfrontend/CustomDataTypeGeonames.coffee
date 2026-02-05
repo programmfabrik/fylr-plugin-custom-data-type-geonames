@@ -406,9 +406,8 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
                   cdata._standard.text = cdata.conceptName
 
                   # if a geonames-username is given get data from geonames for fulltext
-                  geonamesUsername = ''
-                  if that.getCustomSchemaSettings().geonames_username?.value
-                    geonamesUsername = that.getCustomSchemaSettings().geonames_username.value
+                  geonamesUsername = that.getGeonamesUsername()
+                  if geonamesUsername
                     # extract geonames-id from URI
                     geonamesID = cdata.conceptURI
                     geonamesID = geonamesID.replace('http://www.geonames.org/', '')
@@ -711,5 +710,19 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
       return mapbox_api_key
     
     return null
+
+  getGeonamesUsername: () ->
+    username = @.getCustomSchemaSettings().geonames_username?.value
+    if username
+      return username
+    
+    baseConfig = ez5.session.getBaseConfig("plugin", "custom-data-type-geonames")
+    username = baseConfig?.config_geonames?.geonames_username
+    if username
+      return username
+    
+    return null
+
+  
 
 CustomDataType.register(CustomDataTypeGeonames)
