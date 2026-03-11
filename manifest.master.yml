@@ -35,10 +35,6 @@ custom_types:
         type: text_l10n
     config:
       schema:
-        - name: mapbox_api_key
-          parameters:
-            value:
-              type: text
         - name: geonames_username
           parameters:
             value:

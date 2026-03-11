@@ -25,7 +25,6 @@ custom.data.type.geonames.setting.schema.add_geographicplaces,Geografika,Places
 custom.data.type.geonames.setting.schema.add_subjects,Sachbegriffe,Subjects
 custom.data.type.geonames.config.parameter.mask.config_featureclasses.value.checkbox,Kategorien (Featureklassen) als Dropdown zur Verfeinerung der Suche anbieten?,Offer featureclasses as a drop-down to refine the search?
 custom.data.type.geonames.config.parameter.mask.config_featurecodes.value.checkbox,Ortstyp (Featurecodes) als Dropdown zur Verfeinerung der Suche anbieten?,Offer featurecodes as a drop-down to refine the search?
-custom.data.type.geonames.config.parameter.schema.mapbox_api_key.value.label,Mapbox-Api-Key (für Kartenanzeige benötigt),Mapbox Api-Key (required for map display)
 custom.data.type.geonames.config.parameter.mask.show_infopopup.value.label,Infopopup,Infopopup
 custom.data.type.geonames.config.parameter.mask.config_featureclasses.value.label,Dropdown Featureklassen,Dropdown Featureclasses
 custom.data.type.geonames.config.parameter.mask.config_featurecodes.value.label,Dropdown Featurecodes,Dropdown Featurecodes
