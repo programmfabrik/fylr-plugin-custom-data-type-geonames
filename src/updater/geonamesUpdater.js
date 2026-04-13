@@ -64,13 +64,22 @@ function isInTimeRange(currentHour, fromHour, toHour) {
     }
 }
 
-function getGeonamesUsername(config){
+function getGeonamesUsername(config) {
     let username = config.plugin['custom-data-type-geonames'].config.update_geonames?.geonames_username;
-    if(username) return username;
+    if (username) return username;
 
     username = config.plugin['custom-data-type-geonames'].config.config_geonames?.geonames_username;
     if (username) return username;
     return null;
+}
+
+function getNewCustomExpiresAt() {
+    const newExpiresAt = new Date()
+    const customExpirationConfig = info?.config?.plugin?.['custom-data-type-geonames']?.config?.update_geonames?.custom_expires_days || 1
+
+    newExpiresAt.setDate(newExpiresAt.getDate() + customExpirationConfig);
+
+    return newExpiresAt.toISOString()
 }
 
 main = (payload) => {
@@ -204,7 +213,11 @@ main = (payload) => {
 
                             if (hasChanges(payload.objects[index].data, newCdata)) {
                                 payload.objects[index].data = newCdata;
-                            } else { }
+                            } else {
+                                payload.objects[index].data = originalCdata
+                            }
+                            // set expires at for the custom data object according to the plugin base config
+                            payload.objects[index].data._expires_at = getNewCustomExpiresAt()
                         }
                     } else {
                         console.error('No matching record found');

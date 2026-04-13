@@ -123,7 +123,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
     geonamesID = decodeURIComponent(uri)
     geonamesID = geonamesID.split "/"
     geonamesID = geonamesID.pop()
-    # download infos from entityfacts
+    # download infos from geonames
     if extendedInfo_xhr.xhr != undefined
       # abort eventually running request
       extendedInfo_xhr.xhr.abort()

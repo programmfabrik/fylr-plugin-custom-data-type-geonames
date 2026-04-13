@@ -115,6 +115,11 @@ base_config:
         type: text
         default: ''
         position: 4
+      custom_expires_days:
+        type: int
+        min: 1
+        default: 1
+        position: 5
   - name: config_geonames
     group: config_update_custom_data_type
     parameters:
