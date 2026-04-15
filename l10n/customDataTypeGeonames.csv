@@ -50,7 +50,6 @@ custom.data.type.geonames.config.parameter.mask.infopop.kontinent.label,Kontinen
 custom.data.type.geonames.config.parameter.mask.infopop.einwohner.label,Einwohner,Population
 custom.data.type.geonames.config.parameter.mask.infopop.typ.label,Typ,Type
 custom.data.type.geonames.config.parameter.mask.infopop.zeitzone.label,Zeitzone,Timezone
-custom.data.type.geonames.config.parameter.schema.geonames_username.value.label,geonames-Username (Veraltet),geonames-Username (Obsolete)
 custom.data.type.geonames.config.parameter.mask.default_country_code.value.label,Standard-Ländercode (2-stellig),Default countrycode (2 digits)
 custom.data.type.geonames.modal.form.text.countrys,Land,Country
 custom.data.type.geonames.modal.form.text.featurecodes,Ortstyp,Placetype
@@ -68,7 +67,7 @@ server.config.parameter.system.update_geonames.from_time.label,Stunde von (Zahl 
 server.config.parameter.system.update_geonames.to_time.label,Stunde bis (Zahl 0-24),Hour to (Int 0-24)
 server.config.parameter.system.update_geonames.geonames_username.label,Geonames-Username (API) (Veraltet),Geonames-Username (API) (Obsolete)
 server.config.parameter.system.update_geonames.custom_expires_days.label,Datengültigkeit (in Tagen),Data expires in (in days)
-server.config.name.system.config_geonames,Mapbox-Einstellungen,Mapbox-Config
+server.config.name.system.config_geonames,Geonames-Einstellungen,Geonames-Config
 server.config.parameter.system.config_geonames.geonames_username.label,Geonames-Username (API),Geonames-Username (API)
 server.config.name.system.mapbox_geonames,Mapbox-Einstellungen,Mapbox-Config
 server.config.parameter.system.mapbox_geonames.mapbox_api_key.label,Mapbox-Api-Key (für Kartenanzeige benötigt),Mapbox Api-Key (required for map display)

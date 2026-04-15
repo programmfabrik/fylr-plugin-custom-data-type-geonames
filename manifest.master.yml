@@ -34,11 +34,6 @@ custom_types:
       facetTerm:
         type: text_l10n
     config:
-      schema:
-        - name: geonames_username
-          parameters:
-            value:
-              type: text
       mask:
         - name: config_featureclasses
           parameters:
@@ -111,15 +106,11 @@ base_config:
         type: text
         default: 'de'
         position: 3
-      geonames_username:
-        type: text
-        default: ''
-        position: 4
       custom_expires_days:
         type: int
         min: 1
         default: 1
-        position: 5
+        position: 4
   - name: config_geonames
     group: config_update_custom_data_type
     parameters:

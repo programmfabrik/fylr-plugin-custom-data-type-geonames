@@ -687,16 +687,6 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
   getCustomDataOptionsInDatamodelInfo: (custom_settings) ->
     tags = []
 
-    if custom_settings.mapbox_api_key?.value
-      tags.push "✓ mapbox-token"
-    else
-      tags.push "✘ mapbox-token"
-
-    if custom_settings.geonames_username?.value
-      tags.push "✓ geonames-Username"
-    else
-      tags.push "✘ geonames-Username"
-
     tags
 
   getMapboxApiKey: () ->
@@ -707,11 +697,7 @@ class CustomDataTypeGeonames extends CustomDataTypeWithCommonsAsPlugin
     
     return null
 
-  getGeonamesUsername: () ->
-    username = @.getCustomSchemaSettings().geonames_username?.value
-    if username
-      return username
-    
+  getGeonamesUsername: () ->   
     baseConfig = ez5.session.getBaseConfig("plugin", "custom-data-type-geonames")
     username = baseConfig?.config_geonames?.geonames_username
     if username
