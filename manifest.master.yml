@@ -6,8 +6,20 @@ plugin:
     de-DE: Geonames-Verknüpfung
     en-US: Geonames-Referencing
   info:
-    de-DE: Stellt Verknüpfungen mit der geographischen Datenbank geonames her.
-    en-US: Use for references to entities of geonames-database.
+    de-DE: |
+      Stellt einen eigenen Feldtyp bereit, mit dem Datensätze mit Einträgen der geographischen Datenbank [GeoNames](http://www.geonames.org/) verknüpft werden. Redakteure suchen einen Ort und hinterlegen eine eindeutige Referenz mit Hierarchie und Koordinaten, statt Ortsnamen von Hand einzugeben.
+
+      - Vorschläge während der Eingabe über den GBV-Suggest-Dienst; Volltext über einen GeoNames-Benutzernamen
+      - Filter nach Feature-Klasse (Ortskategorie) und Feature-Code (Ortstyp)
+      - Optionale Darstellung des gewählten Orts in einer statischen Karte über Mapbox
+      - Optionaler nächtlicher Updater hält die Daten mit GeoNames synchron
+    en-US: |
+      Adds a custom data type for linking records to entries in the [GeoNames](http://www.geonames.org/) geographical database. Editors search for a place and store an authoritative reference with its hierarchy and coordinates instead of typing location names by hand.
+
+      - Type-ahead search via the GBV suggest service; full text with a GeoNames username
+      - Filter by feature class (place category) and feature code (place type)
+      - Optional static map display of the selected place via Mapbox
+      - Optional nightly updater keeps stored data in sync with GeoNames
   server:
     api-version:
       require: 1
@@ -24,7 +36,7 @@ custom_types:
   geonames:
     mapping:
       conceptName:
-        type: text        
+        type: text
       conceptURI:
         type: text
         skipTerms: true
@@ -64,7 +76,6 @@ custom_types:
             value:
               type: select
               options: ["default", "condensed"]
-              
     update:
       plugin_user:
         reference: system:root
