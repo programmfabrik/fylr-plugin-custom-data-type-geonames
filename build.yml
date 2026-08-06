@@ -1,0 +1,42 @@
+# Build configuration for fylr-build-plugin — the explicit build description.
+# Delivered files are listed here; "check" (runs with every build) warns when
+# a manifest reference is missing from the build folder.
+# All features: https://github.com/programmfabrik/fylr-build-plugin
+
+webfrontend:
+  # CoffeeScript 1.x, compiled + concatenated in this order into
+  # plugin.webfrontend.url (webfrontend/customDataTypeGeonames.js)
+  coffee1:
+    - webfrontend/Countrycodes.coffee
+    - webfrontend/CustomDataTypeGeonames.coffee
+    - webfrontend/CustomDataTypeGeonamesFacet.coffee
+    - webfrontend/geonamesUtil.coffee
+  install:
+    - webfrontend/customDataTypeGeonames.css
+
+build:
+  bundles:
+    # The updater, run server-side by custom_types.geonames.update.exec
+    # (service "node"). The hand-written script comes FIRST and the shared
+    # utility is appended to it — the same utility that also goes into the
+    # webfrontend bundle above.
+    - out: updater/geonamesUpdater.js
+      sources:
+        - src/updater/geonamesUpdater.js
+        - webfrontend/geonamesUtil.coffee
+
+    # The l10n the manifest points at is two files: the plugin's own keys plus
+    # the country name list. There is no server.install for l10n — this bundle
+    # produces the file, and world_names.csv is deliberately not shipped on its
+    # own, exactly as the old Makefile did it.
+    - out: l10n/customDataTypeGeonames.csv
+      sources:
+        - l10n/customDataTypeGeonames.csv
+        - l10n/world_names.csv
+
+  # customDataTypeGeonames.zip is the name this plugin has always published.
+  # fylr updates a url plugin by re-fetching the url it stored at install time,
+  # so instances hold that url and it must keep resolving after the asset is
+  # renamed to fylr-plugin-custom-data-type-geonames.zip.
+  zip_aliases:
+    - customDataTypeGeonames.zip
