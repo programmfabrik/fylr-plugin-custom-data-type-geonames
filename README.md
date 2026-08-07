@@ -13,7 +13,7 @@ The Plugins uses <http://ws.gbv.de/suggest/geonames/> for the autocomplete-sugge
 
 ## installation
 
-The latest version of this plugin can be found [here](https://github.com/programmfabrik/fylr-plugin-custom-data-type-geonames/releases/latest/download/customDataTypeGeonames.zip).
+The latest version of this plugin can be found [here](https://github.com/programmfabrik/fylr-plugin-custom-data-type-geonames/releases/latest/download/fylr-plugin-custom-data-type-geonames.zip).
 
 The ZIP can be downloaded and installed using the plugin manager, or used directly (recommended).
 
