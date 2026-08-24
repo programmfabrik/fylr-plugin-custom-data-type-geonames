@@ -4,17 +4,20 @@
 # All features: https://github.com/programmfabrik/fylr-build-plugin
 
 webfrontend:
-  # CoffeeScript 1.x, compiled + concatenated in this order into
-  # plugin.webfrontend.url (webfrontend/customDataTypeGeonames.js)
-  coffee1:
-    - webfrontend/Countrycodes.coffee
-    - webfrontend/CustomDataTypeGeonames.coffee
-    - webfrontend/CustomDataTypeGeonamesFacet.coffee
-    - webfrontend/geonamesUtil.coffee
+  # assembled into plugin.webfrontend.url, in this order:
+  # .coffee is compiled (CoffeeScript 1.x), .scss compiled,
+  # anything else taken verbatim
+  bundles:
+    - sources:
+        - webfrontend/Countrycodes.coffee
+        - webfrontend/CustomDataTypeGeonames.coffee
+        - webfrontend/CustomDataTypeGeonamesFacet.coffee
+        - webfrontend/geonamesUtil.coffee
   install:
     - webfrontend/customDataTypeGeonames.css
 
-build:
+server:
+  # assembled server-side files, sources in the order written
   bundles:
     # The updater, run server-side by custom_types.geonames.update.exec
     # (service "node"). The hand-written script comes FIRST and the shared
@@ -34,9 +37,9 @@ build:
         - l10n/customDataTypeGeonames.csv
         - l10n/world_names.csv
 
-  # customDataTypeGeonames.zip is the name this plugin has always published.
-  # fylr updates a url plugin by re-fetching the url it stored at install time,
-  # so instances hold that url and it must keep resolving after the asset is
-  # renamed to fylr-plugin-custom-data-type-geonames.zip.
-  zip_aliases:
-    - customDataTypeGeonames.zip
+# customDataTypeGeonames.zip is the name this plugin has always published.
+# fylr updates a url plugin by re-fetching the url it stored at install time,
+# so instances hold that url and it must keep resolving after the asset is
+# renamed to fylr-plugin-custom-data-type-geonames.zip.
+zip_aliases:
+  - customDataTypeGeonames.zip
